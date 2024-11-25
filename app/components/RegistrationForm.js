@@ -2,21 +2,100 @@
 
 import { useState } from 'react';
 
-export default function RegistrationForm() {
+export function Registration() {
   // Add state for username and usernameErrorText
-
-  // Add state for password and passwordErrortext
+  const [userName, setUserName] = useState('');
+  const [usernameErrorText, setUserNameError] = useState('');
 
   // Add state for confirmPassword and confirmPasswordErrorText
+  const [password, setPassword] = useState('');
+  const [passwordErrorText, setPasswordErrorText] = useState('');
+
+  // Add state for confirmPassword and confirmPasswordErrorText
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [confirmPasswordErrorText, setConfirmPasswordErrorText] = useState('');
 
   // Extra - add state for email and emailErrorText
+  const [email, setEmail] = useState('');
+  const [emailErrorText, setEmailErrorText] = useState('');
 
   // Add state for isFormValid
+  const [isFormValid, setisFormValid] = useState('');
+  const [isForm, setIsForm] = useState('');
 
   // Add state to set formData
   const [formData, setFormData] = useState(null); // For storing and displaying results
 
   // Add function to validateForm
+  function validateForm() {
+    const isFormValid = setisFormValid(null);
+    const isFormValidError = setIsFormValidError(;' => { if [false]
+      {"Must be at least 8 characters"};
+
+    };
+  }
+
+  // Add function to validate username
+  function validDateUsername() {
+    const [userName, setUserName] = validDateUsername(null);
+    const [userNameError, setUserNameError] = validDateUsername(null);
+
+    const validDateUsername = (registerEvent) => {
+      registerEvent.preventDefault(null);
+      alert(` Welcome, ${userName}`);
+      setUserName('Must be at least 3 characters');
+    };
+  }
+
+
+'use client';
+
+import { useState } from 'react';
+
+export function Registration() {
+  // Add state for username and usernameErrorText
+  const [userName, setUserName] = useState('');
+  const [usernameErrorText, setUserNameError] = useState('');
+
+  // Add state for confirmPassword and confirmPasswordErrorText
+  const [password, setPassword] = useState('');
+  const [passwordErrorText, setPasswordErrorText] = useState('');
+
+  // Add state for confirmPassword and confirmPasswordErrorText
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [confirmPasswordErrorText, setConfirmPasswordErrorText] = useState('');
+
+  // Extra - add state for email and emailErrorText
+  const [email, setEmail] = useState('');
+  const [emailErrorText, setEmailErrorText] = useState('');
+
+  // Add state for isFormValid
+  const [isFormValid, setisFormValid] = useState('');
+  const [isForm, setIsForm] = useState('');
+
+  // Add state to set formData
+  const [formData, setFormData] = useState(null); // For storing and displaying results
+
+  // Add function to validateForm
+  function validateForm() {
+    const isFormValid = setisFormValid(null);
+    const isFormValidError = setIsFormValidError(;' => { if [false]
+      {"Must be at least 8 characters"};
+
+    };
+  }
+
+  // Add function to validate username
+  function validDateUsername() {
+    const [userName, setUserName] = validDateUsername(null);
+    const [userNameError, setUserNameError] = validDateUsername(null);
+
+    const validDateUsername = (registerEvent) => {
+      registerEvent.preventDefault(null);
+      alert(` Welcome, ${userName}`);
+      setUserName('Must be at least 3 characters');
+    };
+  }
 
   // Add function to validate username
 

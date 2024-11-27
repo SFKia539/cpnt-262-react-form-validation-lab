@@ -20,22 +20,62 @@ export function Registration() {
   const [emailErrorText, setEmailErrorText] = useState('');
 
   // Add state for isFormValid
-  const [isFormValid, setisFormValid] = useState('');
-  const [isForm, setIsForm] = useState('');
+  const [isFormValid, setisFormValid] = useState('false');
+  const [isFormValidError, setIsFormValidError] = useState();
 
   // Add state to set formData
   const [formData, setFormData] = useState(null); // For storing and displaying results
 
   // Add function to validateForm
-
+  function validateForm(value) {
+    if (value.length > 4) {
+      setIsFormValidError('');
+      return true;
+    } else {
+      setIsFormValidError('');
+    }
+    return false;
+    console.log(validateForm);
+  }
   // Add function to validate username
+  function validateName(value) {
+    if (value.length < 4) {
+      setUserNameError('Name must be at least 3 characters.');
+    } else {
+      setUserNameError('');
+    }
+  }
 
   // Add function to validate password
+  function validatePassword(value) {
+    if (value.length < 8) {
+      setPasswordErrorText('Name must be at least 8 characters.');
+    } else {
+      setPasswordErrorText('');
+    }
+    console.log(setPassword);
+  }
 
   // Add function to validate confirm password
+  function validateConfirmPasdword(value) {
+    if (value.length < 8) {
+      setConfirmPasswordErrorText('Name must be at least 8 characters.');
+    } else {
+      setConfirmPasswordErrorText('');
+    }
+    console.log(confirmPassword);
+  }
 
   // Extra add function to validate email
 
+  function validEmail(value) {
+    if (value.length) {
+      setEmailErrorText('Not a correct email.');
+    } else {
+      setEmailErrorText('');
+    }
+    console.log(validEmail);
+  }
   // Add function to handle username change
 
   // Add function to handle password change
@@ -45,6 +85,15 @@ export function Registration() {
   // Extra - Add function to handle email value change
 
   // Create a handleSubmitFunction
+  function handleSubmit(currentUserName, password, email) {
+    const formDataToShow = {
+      username: `${currentUserName}`,
+      email: `${validateEmail(email) ? email : `N/A`}`,
+      password: `${password}`,
+    };
+    setFormData(formDataToShow);
+    return formDataToShow;
+  }
 
   return (
     <div className="bg-black text-white min-h-screen flex justify-center items-center p-4">
@@ -65,7 +114,7 @@ export function Registration() {
                 className="w-full p-2 bg-gray-900 text-white border border-gray-700 rounded focus:outline-none focus:ring focus:ring-blue-500"
                 onChange={(e) => {
                   const value = e.target.value;
-                  userName(value);
+                  setUserName(value);
                   if (value < 3) {
                     setUserNameError('Must be at least 3 characters.');
                   } else {
@@ -87,7 +136,7 @@ export function Registration() {
                 className="w-full p-2 bg-gray-900 text-white border border-gray-700 rounded focus:outline-none focus:ring focus:ring-blue-500"
                 onChange={(e) => {
                   const value = e.target.value;
-                  setPassword(value);
+                  passwordassword(value);
                   if (value < 8) {
                     setPasswordErrorText('Must be at least 8 characters.');
                   } else {

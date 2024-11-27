@@ -27,75 +27,6 @@ export function Registration() {
   const [formData, setFormData] = useState(null); // For storing and displaying results
 
   // Add function to validateForm
-  function validateForm() {
-    const isFormValid = setisFormValid(null);
-    const isFormValidError = setIsFormValidError(;' => { if [false]
-      {"Must be at least 8 characters"};
-
-    };
-  }
-
-  // Add function to validate username
-  function validDateUsername() {
-    const [userName, setUserName] = validDateUsername(null);
-    const [userNameError, setUserNameError] = validDateUsername(null);
-
-    const validDateUsername = (registerEvent) => {
-      registerEvent.preventDefault(null);
-      alert(` Welcome, ${userName}`);
-      setUserName('Must be at least 3 characters');
-    };
-  }
-
-
-'use client';
-
-import { useState } from 'react';
-
-export function Registration() {
-  // Add state for username and usernameErrorText
-  const [userName, setUserName] = useState('');
-  const [usernameErrorText, setUserNameError] = useState('');
-
-  // Add state for confirmPassword and confirmPasswordErrorText
-  const [password, setPassword] = useState('');
-  const [passwordErrorText, setPasswordErrorText] = useState('');
-
-  // Add state for confirmPassword and confirmPasswordErrorText
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [confirmPasswordErrorText, setConfirmPasswordErrorText] = useState('');
-
-  // Extra - add state for email and emailErrorText
-  const [email, setEmail] = useState('');
-  const [emailErrorText, setEmailErrorText] = useState('');
-
-  // Add state for isFormValid
-  const [isFormValid, setisFormValid] = useState('');
-  const [isForm, setIsForm] = useState('');
-
-  // Add state to set formData
-  const [formData, setFormData] = useState(null); // For storing and displaying results
-
-  // Add function to validateForm
-  function validateForm() {
-    const isFormValid = setisFormValid(null);
-    const isFormValidError = setIsFormValidError(;' => { if [false]
-      {"Must be at least 8 characters"};
-
-    };
-  }
-
-  // Add function to validate username
-  function validDateUsername() {
-    const [userName, setUserName] = validDateUsername(null);
-    const [userNameError, setUserNameError] = validDateUsername(null);
-
-    const validDateUsername = (registerEvent) => {
-      registerEvent.preventDefault(null);
-      alert(` Welcome, ${userName}`);
-      setUserName('Must be at least 3 characters');
-    };
-  }
 
   // Add function to validate username
 
@@ -132,6 +63,16 @@ export function Registration() {
                 type="text"
                 id="username"
                 className="w-full p-2 bg-gray-900 text-white border border-gray-700 rounded focus:outline-none focus:ring focus:ring-blue-500"
+                onChange={(e) => {
+                  const value = e.target.value;
+                  userName(value);
+                  if (value < 3) {
+                    setUserNameError('Must be at least 3 characters.');
+                  } else {
+                    setUserNameError('Must be at least 3 characters.');
+                  }
+                  console.log(value);
+                }}
               />
               <p className="text-red-500 text-sm mt-2"></p>
             </div>
@@ -144,6 +85,16 @@ export function Registration() {
                 type="password"
                 id="password"
                 className="w-full p-2 bg-gray-900 text-white border border-gray-700 rounded focus:outline-none focus:ring focus:ring-blue-500"
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setPassword(value);
+                  if (value < 8) {
+                    setPasswordErrorText('Must be at least 8 characters.');
+                  } else {
+                    setPasswordErrorText('Must be at least 8 characters.');
+                  }
+                  console.log(value);
+                }}
               />
               <p className="text-red-500 text-sm mt-2"></p>
             </div>
@@ -159,6 +110,20 @@ export function Registration() {
                 type="password"
                 id="confirmPassword"
                 className="w-full p-2 bg-gray-900 text-white border border-gray-700 rounded focus:outline-none focus:ring focus:ring-blue-500"
+                onChange={(e) => {
+                  const value = e.target.value;
+                  confirmPassword(value);
+                  if (value) {
+                    setConfirmPasswordErrorText(
+                      'Must match the password field.'
+                    );
+                  } else {
+                    setConfirmPasswordErrorText(
+                      'Must match the password field.'
+                    );
+                  }
+                  console.log(value);
+                }}
               />
               <p className="text-red-500 text-sm mt-2"></p>
             </div>
@@ -171,6 +136,10 @@ export function Registration() {
                 type="email"
                 id="email"
                 className="w-full p-2 bg-gray-900 text-white border border-gray-700 rounded focus:outline-none focus:ring focus:ring-blue-500"
+                onChange={(e) => {
+                  setEmail(value);
+                  validEmail(value);
+                }}
               />
               <p className="text-red-500 text-sm mt-2"></p>
             </div>
